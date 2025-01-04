@@ -1,0 +1,11 @@
+name = "lean-astar"
+version = "0.1.0"
+defaultTargets = ["LeanAStar"]
+
+[[lean_lib]]
+name = "LeanAStar"
+
+[[require]]
+name = "BinaryHeap"
+git = "https://github.com/soulsource/BinaryHeap"
+revision = "376e4bf573f754aa7cb8c5d6ed652f1efece3050"

@@ -1,0 +1,15 @@
+{"version": "1.1.0",
+ "packagesDir": ".lake/packages",
+ "packages":
+ [{"url": "https://github.com/soulsource/BinaryHeap",
+   "type": "git",
+   "subDir": null,
+   "scope": "",
+   "rev": "376e4bf573f754aa7cb8c5d6ed652f1efece3050",
+   "name": "BinaryHeap",
+   "manifestFile": "lake-manifest.json",
+   "inputRev": null,
+   "inherited": false,
+   "configFile": "lakefile.lean"}],
+ "name": "«lean-astar»",
+ "lakeDir": ".lake"}
