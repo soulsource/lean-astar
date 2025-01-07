@@ -5,7 +5,7 @@
    "type": "git",
    "subDir": null,
    "scope": "",
-   "rev": "376e4bf573f754aa7cb8c5d6ed652f1efece3050",
+   "rev": "fe30e1dc0a0070452edce74331aa3df21a6b8f7c",
    "name": "BinaryHeap",
    "manifestFile": "lake-manifest.json",
    "inputRev": null,

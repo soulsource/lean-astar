@@ -8,4 +8,4 @@ name = "LeanAStar"
 [[require]]
 name = "BinaryHeap"
 git = "https://github.com/soulsource/BinaryHeap"
-revision = "376e4bf573f754aa7cb8c5d6ed652f1efece3050"
+revision = "fe30e1dc0a0070452edce74331aa3df21a6b8f7c"
