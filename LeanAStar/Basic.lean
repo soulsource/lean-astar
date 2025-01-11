@@ -85,7 +85,7 @@ structure StartPoint (α : Type u) [AStarNode α Costs] where
   initial_costs : Costs
 
 protected structure PathFindCosts (α : Type u) [AStarNode α Costs] where
-  previousNodes : List α
+  pathUpToHere : List α
   actualCosts : Costs
 
 protected structure PathFindCostsAdapter (α : Type u) [AStarNode α Costs] where
@@ -114,15 +114,15 @@ protected instance {α : Type u} [AStarNode α Costs] : AStarNode (LeanAStar.Pat
   costsLe := λa b ↦ AStarNode.costsLe α a.actualCosts b.actualCosts
   costs_order := ⟨λa b c ↦ AStarNode.costs_order.left a.actualCosts b.actualCosts c.actualCosts, λa b ↦ AStarNode.costs_order.right a.actualCosts b.actualCosts⟩
   getNeighbours := λx ↦
-    (AStarNode.getNeighbours x.node).map λ(node, actualCosts) ↦ ({node},{previousNodes := [x.node], actualCosts})
+    (AStarNode.getNeighbours x.node).map λ(node, actualCosts) ↦ ({node},{pathUpToHere := [node], actualCosts})
   isGoal := AStarNode.isGoal ∘ PathFindCostsAdapter.node
   remaining_costs_heuristic := λx ↦
-    {previousNodes := [x.node], actualCosts := AStarNode.remaining_costs_heuristic x.node}
+    {pathUpToHere := [], actualCosts := AStarNode.remaining_costs_heuristic x.node}
 
 protected instance {α : Type u} [AStarNode α Costs] [Add Costs] : Add (LeanAStar.PathFindCosts α) where
   add := λa b ↦
     {
-      previousNodes := b.previousNodes ++ a.previousNodes
+      pathUpToHere := b.pathUpToHere ++ a.pathUpToHere
       actualCosts := a.actualCosts + b.actualCosts
     }
 
@@ -151,10 +151,10 @@ def findShortestPath {α : Type u} [AStarNode α Costs] [Add Costs] [LawfulBEq �
     {
       start := {node := start}
       initial_costs := {
-        previousNodes := [start]
+        pathUpToHere := [start]
         actualCosts := initial_costs
       }
     }
   let i := findLowestCosts starts
-  i.map λ{previousNodes, actualCosts} ↦
-    (actualCosts, previousNodes)
+  i.map λ{pathUpToHere, actualCosts} ↦
+    (actualCosts, pathUpToHere.reverse)

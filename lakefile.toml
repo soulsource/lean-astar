@@ -1,9 +1,16 @@
 name = "lean-astar"
 version = "0.1.0"
 defaultTargets = ["LeanAStar"]
+testDriver = "LeanAStarTest"
 
 [[lean_lib]]
 name = "LeanAStar"
+
+[[lean_lib]]
+name = "LeanAStarTest"
+
+[[lean_exe]]
+name = "LeanAStarTest"
 
 [[require]]
 name = "BinaryHeap"
