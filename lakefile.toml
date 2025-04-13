@@ -15,4 +15,4 @@ name = "LeanAStarTest"
 [[require]]
 name = "BinaryHeap"
 git = "https://github.com/soulsource/BinaryHeap"
-revision = "a2fcff2dbe3561e3a51b810b3f0577ba99ef5e78"
+revision = "7896480adb78fc9f9b7a86a5eddd0fc5e3f9e4d5"
